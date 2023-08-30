@@ -1,0 +1,89 @@
+@use "vars";
+
+%center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+body {
+    @extend %center;
+    background-color: vars.$bgcolor;
+    height: 100vh;
+    font-family: vars.$font-family;
+}
+
+.calendar {
+    background-color: vars.$compcolor;
+    display: flex;
+    flex-direction: column;
+    font-size: vars.$fontsize;
+    border: vars.$border;
+    width: 25%;
+    box-shadow: 8px 8px 40px 20px rgba(0,0,0,.2);
+
+    .img {
+        background-image: url(img.png);
+        aspect-ratio: 6/5;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: contain;
+    }
+
+    .month {
+        @extend %center;
+        color: vars.$fontcolor;
+        padding: 1%;
+        font-size: 1.3vw;
+        font-weight: bold;
+        padding: vars.$padding;
+    }
+
+    .weekdays {
+        display: flex;
+        justify-content: space-around;
+        padding: 1em 0;
+    
+        :first-child {
+            color:red;
+        }
+    }
+
+    .week {
+        display: flex;
+        justify-content: space-around;
+        .day {
+            @extend %center;
+            width: 100%;
+            aspect-ratio: 2/1;
+            border: vars.$border;
+            color: vars.$fontcolor;
+            padding: 1%;
+        }
+
+        .day:hover {
+            background-color: #eee;
+        }
+
+        .day:active {
+            background-color: #ddd;
+        }
+
+        :first-child {
+            color: red;
+        }
+    }
+
+    .credit {
+        @extend %center;
+        background-color: #eee;
+        font-style: italic;
+        color: #777;
+        font-size: .7vw;
+        padding: 1.3vw;
+    }
+}
+
+main {
+    margin: 0 12% 12% 12%;
+}
